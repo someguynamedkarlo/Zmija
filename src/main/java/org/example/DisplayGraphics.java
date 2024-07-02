@@ -13,6 +13,9 @@ public class DisplayGraphics extends JPanel {
         this.y = y;
         this.z = z;
     }
+
+
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
