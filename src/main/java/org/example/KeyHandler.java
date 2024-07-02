@@ -22,7 +22,6 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
 
-        // Detect arrow keys and WASD keys
         switch (keyCode) {
             case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
