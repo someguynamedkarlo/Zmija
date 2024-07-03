@@ -6,11 +6,13 @@ public class DisplayGraphics extends JPanel {
     private int y;
     private String z;
     private int smjer;
+
     public DisplayGraphics(String z,int x, int y,int smjer) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.smjer = smjer;
+        this.setBackground(Color.black);
     }
     @Override
     protected void paintComponent(Graphics g) {
