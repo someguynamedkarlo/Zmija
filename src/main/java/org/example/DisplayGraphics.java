@@ -1,7 +1,7 @@
 package org.example;
 import java.awt.*;
 import javax.swing.*;
-public class DisplayGraphics extends JPanel {
+public class DisplayGraphics extends JComponent {
     private int x;
     private int y;
     private String z;
@@ -12,7 +12,7 @@ public class DisplayGraphics extends JPanel {
         this.y = y;
         this.z = z;
         this.smjer = smjer;
-        this.setBackground(Color.black);
+        this.setBackground(Color.black  );
     }
     @Override
     protected void paintComponent(Graphics g) {

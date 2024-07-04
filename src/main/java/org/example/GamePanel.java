@@ -7,8 +7,7 @@ public class GamePanel extends JPanel{
     public GamePanel(){
             this.setLayout(new BorderLayout());
             this.setSize(900,900);
-            //this.setBackground(Color.black);
-        //DisplayGraphics displayGraphics = new DisplayGraphics(100,100);
-        //this.add(displayGraphics);
+            this.setBackground(Color.black);
+            this.setVisible(true);
     }
 }

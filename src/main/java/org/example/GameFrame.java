@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class GameFrame extends JFrame {
     private DisplayGraphics m = new DisplayGraphics("rec", 300, 300, 3);
+    private DisplayGraphics m1 = new DisplayGraphics("cir", 500, 500, 3);
     private GamePanel n = new GamePanel();
     private Run run;
     private int x = 300;
@@ -18,14 +19,12 @@ public class GameFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
 
-        this.add(n);
+
+        n.add(m1);
         n.add(m);
-
+        this.add(n);
         this.addKeyListener(new KeyHandler(this));
-
         this.pack();
-
-        // Initialize Run instance
         this.run = new Run(this);
     }
 
