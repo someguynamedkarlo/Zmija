@@ -1,16 +1,13 @@
 package org.example;
-import org.example.GameFrame;
-import org.example.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
-
     private GameFrame gameFrame;
 
-    public KeyHandler(GameFrame gamePanel) {
-        this.gameFrame = gamePanel;
+    public KeyHandler(GameFrame gameFrame) {
+        this.gameFrame = gameFrame;
     }
 
     @Override
@@ -25,23 +22,19 @@ public class KeyHandler implements KeyListener {
         switch (keyCode) {
             case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
-                System.out.println("Up key or W key pressed");
-                gameFrame.moveUp();
+                gameFrame.setDirection(0);
                 break;
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
-                System.out.println("Down key or S key pressed");
-                gameFrame.moveDown();
+                gameFrame.setDirection(2);
                 break;
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
-                System.out.println("Left key or A key pressed");
-                gameFrame.moveLeft();
+                gameFrame.setDirection(3);
                 break;
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
-                System.out.println("Right key or D key pressed");
-                gameFrame.moveRight();
+                gameFrame.setDirection(1);
                 break;
             default:
                 break;

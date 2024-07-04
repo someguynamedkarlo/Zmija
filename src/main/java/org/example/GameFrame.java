@@ -2,64 +2,75 @@ package org.example;
 
 import javax.swing.JFrame;
 import java.awt.*;
-import java.util.Timer;
 
 public class GameFrame extends JFrame {
-    private int x;
-    private int y;
-
-    private DisplayGraphics m=new DisplayGraphics("rec",300,300 ,3);
+    private DisplayGraphics m = new DisplayGraphics("rec", 300, 300, 3);
     private GamePanel n = new GamePanel();
+    private Run run;
+    private int x = 300;
+    private int y = 300;
+
     public GameFrame() {
-
-        this.x=300;
-        this.y=300;
-        this.addKeyListener(new KeyHandler(this));
-        this.add(n);
         this.setTitle("Snake");
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        n.add(m);
-        this.setLayout(new BorderLayout());
-        this.pack();
         this.setSize(900, 900);
-        this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setFocusable(true);
-        this.requestFocusInWindow();
+        this.setVisible(true);
+
+        this.add(n);
+        n.add(m);
+
+        this.addKeyListener(new KeyHandler(this));
+
+        this.pack();
+
+        // Initialize Run instance
+        this.run = new Run(this);
     }
 
     public void moveUp() {
         System.out.println(this.y);
-        if (this.y-20 >= 0) {
-            this.y-=20;
+        if (this.y-1 >= 0) {
+            this.y-=1;
             m.setCoordinates(x, y);
             repaint();
+        }else{
+            run.stopRunning();
         }
     }
 
     public void moveDown() {
-        if (this.y+20 < 850) {
-            this.y += 20;
+        if (this.y+1 < 850) {
+            this.y += 1;
             m.setCoordinates(x, y);
             repaint();
+        }else{
+            run.stopRunning();
         }
     }
 
     public void moveLeft() {
-        if (this.x-20 >= 0) {
-            this.x -= 20;
+        if (this.x-1 >= 0) {
+            this.x -= 1;
             m.setCoordinates(x, y);
             repaint();
+        }else{
+            run.stopRunning();
         }
     }
 
     public void moveRight() {
-        if (this.x + 20 < 850) {
-            this.x += 20;
+        if (this.x + 1 < 850) {
+            this.x += 1;
             m.setCoordinates(x, y);
             repaint();
+        }else{
+            run.stopRunning();
         }
+    }
+
+    public void setDirection(int direction) {
+        run.setSmjer(direction);
     }
 }
